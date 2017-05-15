@@ -1,6 +1,6 @@
-# Land Ho – Starter
+# Gieffe Videogames
 
-Theme starter for new project base on WordPress
+Official Theme for Gieffe Videogames
 
 ## Installation
 

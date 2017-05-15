@@ -1,8 +1,8 @@
 <?php
 
-  if (!function_exists('landhostarter_setup')) {
+  if (!function_exists('gieffe_videogames_setup')) {
 
-    function landhostarter_setup() {
+    function gieffe_videogames_setup() {
       
       // Let WordPress manage the document title -------------------------------
 			
@@ -38,4 +38,4 @@
     }
 
   }
-  add_action('after_setup_theme', 'landhostarter_setup');
+  add_action('after_setup_theme', 'gieffe_videogames_setup');

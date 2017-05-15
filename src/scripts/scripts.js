@@ -7,7 +7,7 @@
   };
 
   function initLog() {
-    console.log('landhostarter');
+    console.log('gieffe-videogames');
   };
 
   init();
