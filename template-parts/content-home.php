@@ -38,22 +38,6 @@
     <?php endwhile; ?>
   <?php endif; ?>
 
-  <?php if ( have_rows('home_partners') ): ?>
-    <?php while ( have_rows('home_partners') ) : the_row(); ?>
-      <section class="partners">
-        <h3><?php esc_html_e('Partners', 'gieffe-videogames'); ?></h3>
-        <ul>
-          <?php if ( get_sub_field('home_partner_link') && get_sub_field('home_partner_title') && get_sub_field('home_partner_image') ): ?>
-            <li>
-              <a href="<?php the_sub_field('home_partner_link'); ?>" rel="nofollow" target="_blank" class="partners-link">
-                <span class="hidden"><?php the_sub_field('home_partner_title'); ?></span>
-                <img src="<?php the_sub_field('home_partner_image'); ?>" alt="">
-              </a>
-            </li>
-          <?php endif; ?>
-        </ul>
-      </section>
-    <?php endwhile; ?>
-  <?php endif; ?>
+  <?php get_template_part('template-parts/content', 'partners'); ?>
 
 </article>
