@@ -6,29 +6,40 @@
 
     <header class="hero">
       <div class="hero-content">
-        <?php if ( is_category() ) : ?>
-          <h2><?php single_cat_title(); ?></h2>
-        <?php elseif ( is_tag() ) : ?>
-          <h2><?php single_tag_title(); ?></h2>
-        <?php elseif ( is_search() ) : ?>
-          <h2><?php printf( __('Search Results for: %s', 'gieffe-videogames'), get_search_query() ); ?></h2>
-        <?php else: ?>
-          <h2><?php esc_html_e('News', 'gieffe-videogames'); ?></h2>
-        <?php endif; ?>
-        <?php if ( get_field('index_hero_description', get_option('page_for_posts')) ) : ?>
+
+        <?php
+          echo '<h2>';
+          esc_html_e('News', 'gieffe-videogames');
+          if ( is_category() ) {
+            echo ': ';
+            single_cat_title();
+          } elseif ( is_tag() ) {
+            echo ': ';
+            single_tag_title();
+          }
+          echo '</h2>';
+        ?>
+
+        <?php if ( is_search() ) : ?>
+          <p><?php printf( __('Search Results for: %s', 'gieffe-videogames'), get_search_query() ); ?></p>
+        <?php elseif ( get_field('index_hero_description', get_option('page_for_posts')) ) : ?>
           <p><?php the_field('index_hero_description', get_option('page_for_posts')) ?></p>
         <?php endif; ?>
-        <section class="hero-categories">
-          <h3 class="hidden"><?php esc_html_e('News categories', 'gieffe-videogames'); ?></h3>
-          <ul>
-            <?php
-              $categories = get_categories();
-              foreach ($categories as $category) {
-                echo '<li><a href="' . get_category_link($category->term_id) . '" rel="bookmark">' . $category->name . '</a></li>';
-              }
-            ?>
-          </ul>
-        </section>
+
+        <?php if ( !is_category() && !is_tag() && !is_search() ) : ?>
+          <section class="hero-categories">
+            <h3 class="hidden"><?php esc_html_e('News categories', 'gieffe-videogames'); ?></h3>
+            <ul>
+              <?php
+                $categories = get_categories();
+                foreach ($categories as $category) {
+                  echo '<li><a href="' . get_category_link($category->term_id) . '" rel="bookmark">' . $category->name . '</a></li>';
+                }
+              ?>
+            </ul>
+          </section>
+        <?php endif; ?>
+
       </div>
     </header>
 
