@@ -7,8 +7,7 @@
     <meta name="pinterest" content="nopin">
     <?php wp_head(); ?>
   </head>
-  <body>
-
+  <body <?php body_class(); ?>>
     <header role="banner" class="header">
       <h1>
         <a rel="home" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></span></a>
