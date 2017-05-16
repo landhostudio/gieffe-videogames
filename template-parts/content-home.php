@@ -1,4 +1,4 @@
-<article class="home">
+<article>
 
   <?php if ( get_field('home_hero_title') && get_field('home_hero_description') && get_field('home_hero_link') && get_field('home_hero_link_name') || has_post_thumbnail() ) : ?>
     <header class="hero">
@@ -42,9 +42,9 @@
     <?php while ( have_rows('home_partners') ) : the_row(); ?>
       <section class="partners">
         <h3><?php esc_html_e('Partners', 'gieffe-videogames'); ?></h3>
-        <ul class="partners-items">
+        <ul>
           <?php if ( get_sub_field('home_partner_link') && get_sub_field('home_partner_title') && get_sub_field('home_partner_image') ): ?>
-            <li class="partners-item">
+            <li>
               <a href="<?php the_sub_field('home_partner_link'); ?>" rel="nofollow" target="_blank" class="partners-link">
                 <span class="hidden"><?php the_sub_field('home_partner_title'); ?></span>
                 <img src="<?php the_sub_field('home_partner_image'); ?>" alt="">
