@@ -43,26 +43,15 @@
       </div>
     </header>
 
+    <?php hm_get_template_part( 'template-parts/content-pagination', [ 'position' => 'top' ] ); ?>
+
     <div class="posts">
       <?php while ( have_posts() ) : the_post(); ?>
         <?php get_template_part('template-parts/content', 'preview'); ?>
       <?php endwhile; ?>
     </div>
 
-    <?php if ( paginate_links() ) : ?>
-      <nav class="pagination">
-        <h4><?php esc_html_e('Pagination', 'gieffe-videogames'); ?></h4>
-        <?php
-          $options = array(
-          	'prev_next'          => true,
-          	'prev_text'          => __('« Previous', 'gieffe-videogames'),
-          	'next_text'          => __('Next »', 'gieffe-videogames'),
-          	'type'               => 'list'
-          );
-          echo paginate_links( $options );
-        ?>
-      </nav>
-    <?php endif; ?>
+    <?php hm_get_template_part( 'template-parts/content-pagination', [ 'position' => 'bottom' ] ); ?>
 
   </article>
 
