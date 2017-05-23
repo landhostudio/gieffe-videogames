@@ -33,6 +33,10 @@
       
       if (!isset($content_width)) $content_width = 1280;
 
+      // Tools & hacks ---------------------------------------------------------
+
+      get_template_part( 'inc/tools' );
+
       // Soil ------------------------------------------------------------------
       
       get_template_part( 'inc/soil' );
