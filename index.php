@@ -9,25 +9,28 @@
 
         <?php
           echo '<h2>';
-          esc_html_e('News', 'gieffe-videogames');
-          if ( is_category() ) {
-            echo ': ';
+          if ( is_home() ) {
+            esc_html_e( 'News', 'gieffe-videogames' );
+          } elseif ( is_category() ) {
             single_cat_title();
           } elseif ( is_tag() ) {
-            echo ': ';
             single_tag_title();
           }
           echo '</h2>';
         ?>
 
-        <?php if ( is_search() ) : ?>
-          <p><?php printf( __('Search Results for: %s', 'gieffe-videogames'), get_search_query() ); ?></p>
-        <?php elseif ( get_field('index_hero_description', get_option('page_for_posts')) ) : ?>
+        <?php if ( is_home() && get_field('index_hero_description', get_option('page_for_posts')) ) : ?>
           <p><?php the_field('index_hero_description', get_option('page_for_posts')) ?></p>
+        <?php elseif ( is_search() ) : ?>
+          <p><?php printf( __('Search Results for: %s', 'gieffe-videogames'), get_search_query() ); ?></p>
+        <?php elseif ( category_description() ) : ?>
+          <?php echo category_description(); ?>
+        <?php elseif ( tag_description() ) : ?>
+          <?php echo tag_description(); ?>
         <?php endif; ?>
 
-        <?php if ( !is_category() && !is_tag() && !is_search() ) : ?>
-          <section class="hero-categories">
+        <?php if ( is_home() ) : ?>
+          <nav class="hero-categories">
             <h3 class="hidden"><?php esc_html_e('News categories', 'gieffe-videogames'); ?></h3>
             <ul>
               <?php
@@ -37,7 +40,7 @@
                 }
               ?>
             </ul>
-          </section>
+          </nav>
         <?php endif; ?>
 
       </div>
