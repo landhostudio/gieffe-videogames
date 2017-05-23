@@ -38,6 +38,63 @@
       
       if (!isset($content_width)) $content_width = 1280;
 
+      // Custom Post Type ------------------------------------------------------
+
+      function gieffe_videogames_products() {
+
+        $labels = array(
+          'name' => __('Products', '') ,
+          'singular_name' => __('Product', '')
+        );
+
+        $args = array(
+          'labels' => $labels,
+          'public' => true,
+          'publicly_queryable' => true,
+          'show_ui' => true,
+          'show_in_menu' => true,
+          'query_var' => true,
+          'rewrite' => true,
+          'capability_type' => 'post',
+          'hierarchical' => false,
+          'supports' => array(
+            'title',
+            'editor',
+            'thumbnail'
+          ),
+          'menu_icon' => 'dashicons-cart'
+        );
+
+      	register_post_type( 'product', $args );
+
+      }
+      add_action( 'init', 'gieffe_videogames_products' );
+
+      // Custom Post Type Taxonomy ---------------------------------------------
+
+      function gieffe_videogames_products_taxonomy() {
+
+      	$labels = array(
+      		'name' => __( 'Categories', '' ),
+      		'singular_name' => __( 'Category', '' )
+      	);
+
+        $args = array(
+          'labels' => $labels,
+          'hierarchical' => true,
+          'query_var' => true,
+          'show_ui' => true,
+          'rewrite' => array(
+            'hierarchical' => true
+          )
+        );
+
+      	register_taxonomy( 'products', array( 'product' ), $args );
+
+      }
+
+      add_action( 'init', 'gieffe_videogames_products_taxonomy' );
+
       // Tools & hacks ---------------------------------------------------------
 
       get_template_part( 'inc/tools' );
