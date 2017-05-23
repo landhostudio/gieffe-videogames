@@ -34,25 +34,29 @@
 
   </header>
 
-  <?php if ( have_rows('home_sections') ): ?>
-    <?php while ( have_rows('home_sections') ) : the_row(); ?>
-      <section class="section">
-        <?php if ( get_sub_field('home_section_title') && get_sub_field('home_section_description') && get_sub_field('home_section_link') && get_sub_field('home_section_link_name') ): ?>
+  <?php if ( have_rows( 'home_sections' ) ): ?>
+    <?php
+      $n = 0;
+      while ( have_rows( 'home_sections' ) ) : the_row();
+      $n++;
+    ?>
+      <section class="section<?php echo ($n%2) ? ' section--right' : ' section--left' ?>">
+        <?php if ( get_sub_field( 'home_section_title' ) && get_sub_field( 'home_section_description' ) && get_sub_field( 'home_section_link' ) && get_sub_field( 'home_section_link_name' ) ): ?>
           <div class="section-content">
-            <h3><?php the_sub_field('home_section_title'); ?></h3>
-            <p><?php the_sub_field('home_section_description'); ?></p>
-            <a href="<?php the_sub_field('home_section_link'); ?>" rel="bookmark" class="button"><?php the_sub_field('home_section_link_name'); ?></a>
+            <h3><?php the_sub_field( 'home_section_title' ); ?></h3>
+            <p><?php the_sub_field( 'home_section_description' ); ?></p>
+            <a href="<?php the_sub_field( 'home_section_link' ); ?>" rel="bookmark" class="button"><?php the_sub_field( 'home_section_link_name' ); ?></a>
           </div>
         <?php endif; ?>
-        <?php if ( get_sub_field('home_section_image') ): ?>
+        <?php if ( get_sub_field( 'home_section_image' ) ): ?>
           <div class="section-image">
-            <?php echo wp_get_attachment_image(get_sub_field('home_section_image'), 'medium', false, array()); ?>
+            <?php echo wp_get_attachment_image(get_sub_field( 'home_section_image' ), 'medium', false, array()); ?>
           </div>
         <?php endif; ?>
       </section>
     <?php endwhile; ?>
   <?php endif; ?>
 
-  <?php get_template_part('template-parts/content', 'partners'); ?>
+  <?php get_template_part( 'template-parts/content', 'partners' ); ?>
 
 </article>
