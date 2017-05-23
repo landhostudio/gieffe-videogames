@@ -40,7 +40,7 @@
       while ( have_rows( 'home_sections' ) ) : the_row();
       $n++;
     ?>
-      <section class="section<?php echo ($n%2) ? ' section--right' : ' section--left' ?>">
+      <section class="section<?php echo ( $n%2 ) ? ' section--right' : ' section--left' ?>">
         <?php if ( get_sub_field( 'home_section_title' ) && get_sub_field( 'home_section_description' ) && get_sub_field( 'home_section_link' ) && get_sub_field( 'home_section_link_name' ) ): ?>
           <div class="section-content">
             <h3><?php the_sub_field( 'home_section_title' ); ?></h3>
