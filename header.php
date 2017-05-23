@@ -23,4 +23,27 @@
           )); ?>
         </nav>
       <?php endif; ?>
+      
+      <?php
+        $languages = icl_get_languages('skip_missing=0');
+        if (!empty($languages)):
+      ?>
+        <div class="header-languages">
+          <button type="button">
+            <?php foreach($languages as $language): ?>
+              <?php if ($language['active']): ?>
+                <?php echo $language['native_name']; ?>
+              <?php endif; ?>
+            <?php endforeach; ?>
+            <span class="caret" aria-hidden="true"></span>
+          </button>
+          <ul>
+            <?php foreach($languages as $language): ?>
+              <?php if (!$language['active']): ?>
+                <li><a href="<?php echo $language['url']; ?>" rel="bookmark"><?php echo $language['native_name']; ?></a></li>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      <?php endif; ?>
     </header>
