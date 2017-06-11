@@ -11,6 +11,10 @@ Official Theme for Gieffe Videogames
 5. Build project assets running `gulp`
 6. Open watch server with run `gulp watch`
 
+## TODO
+
+- [ ] make components template_part eg. `hero`
+
 ## License
 
 This theme is copyrighted. Non autorizated modification (any of modification of the source code inside this theme folder) of this theme is strongly prohibited.

@@ -22,6 +22,22 @@
 	    <?php the_content(); ?>
 	  </div>
 
+		<nav class="breadcrums">
+
+		  <div class="breadcrums-back">
+		    <a href="../" rel="prev"><?php esc_html_e( '&laquo; Back', 'gieffe-videogames' ); ?></a>
+		  </div>
+
+		  <div class="breadcrums-categories">
+		    <a href="../" rel="prev"><?php esc_html_e( 'Products', 'gieffe-videogames' ); ?></a>
+				
+				<?php
+					// TODO: qui ci deve stare loop di ogni taxonomy utilizzata nella pagina
+				?>
+		  </div>
+
+		</nav>
+
 	</article>
 
 <?php endwhile; ?>

@@ -62,4 +62,6 @@
   <?php get_template_part('template-parts/content', 'none'); ?>
 <?php endif; ?>
 
+<strong>index.php</strong>
+
 <?php get_footer(); ?>
